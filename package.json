@@ -1,6 +1,6 @@
 {
   "name": "imooc-nodejs-deploy-and-publish",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "about deploy and publish node.js application",
   "main": "last1k.js",
   "scripts": {
