@@ -1,0 +1,26 @@
+{
+  "name": "imooc-nodejs-deploy-and-publish",
+  "version": "0.1.0",
+  "description": "about deploy and publish node.js application",
+  "main": "last1k.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/isjia/imooc-nodejs-deploy-and-publish.git"
+  },
+  "keywords": [
+    "deploy",
+    "node",
+    "js",
+    "notebook",
+    "tutorial"
+  ],
+  "author": "isjia",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/isjia/imooc-nodejs-deploy-and-publish/issues"
+  },
+  "homepage": "https://github.com/isjia/imooc-nodejs-deploy-and-publish#readme"
+}
