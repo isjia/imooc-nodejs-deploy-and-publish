@@ -38,3 +38,6 @@ jspm_packages
 
 # Gitbook file
 _book/
+
+# gh-pages
+.publish/

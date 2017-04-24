@@ -1,3 +1,3 @@
-# Summary Start
+# Summary
 
-* [Start note](00.md)
+* [Start](00.md)
