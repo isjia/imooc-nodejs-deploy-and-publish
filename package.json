@@ -4,7 +4,9 @@
   "description": "about deploy and publish node.js application",
   "main": "last1k.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "gitbook build ./notes",
+    "open": "npm run build && open notes/_book/index.html"
   },
   "repository": {
     "type": "git",
@@ -17,10 +19,18 @@
     "notebook",
     "tutorial"
   ],
-  "author": "isjia",
+  "author": "isjia@me.com",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/isjia/imooc-nodejs-deploy-and-publish/issues"
   },
-  "homepage": "https://github.com/isjia/imooc-nodejs-deploy-and-publish#readme"
+  "homepage": "https://github.com/isjia/imooc-nodejs-deploy-and-publish#readme",
+  "devDependencies": {
+    "browser-sync": "^2.18.8",
+    "gitbook-cli": "^2.3.0",
+    "gulp": "^3.9.1",
+    "gulp-exec": "^2.1.3",
+    "gulp-gh-pages": "^0.5.4",
+    "shelljs": "^0.7.7"
+  }
 }
