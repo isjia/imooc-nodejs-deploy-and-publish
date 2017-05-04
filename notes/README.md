@@ -1,4 +1,4 @@
-# Node.js 项目的线上服务器步数与发布
+# Node.js 项目的线上服务器部署与发布
 
 这是 [Node.js 项目的线上服务器步数与发布](http://coding.imooc.com/class/95.html) 课程的学习笔记，方便看完视频之后回顾。
 
