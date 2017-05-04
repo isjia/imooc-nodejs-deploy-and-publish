@@ -1,5 +1,5 @@
 # iMooc Course: node.js deploy and publish
-Notes for course: Nodejs app [deploy and publish](http://coding.imooc.com/class/95.html)
+Notes for course: [Nodejs app deploy and publish](http://coding.imooc.com/class/95.html)
 
 ## Project usage
 
