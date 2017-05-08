@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Introduction · GitBook</title>
+        <title>04 远程登录服务器 · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.2">
@@ -57,8 +57,8 @@
     <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="01.html" />
     
+    <link rel="prev" href="03.html" />
     
 
     </head>
@@ -87,7 +87,7 @@
         
         
     
-        <li class="chapter active" data-level="1.1" data-path="./">
+        <li class="chapter " data-level="1.1" data-path="./">
             
                 <a href="./">
             
@@ -139,7 +139,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.5" data-path="04.html">
+        <li class="chapter active" data-level="1.5" data-path="04.html">
             
                 <a href="04.html">
             
@@ -182,7 +182,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="." >Introduction</a>
+        <a href="." >04 远程登录服务器</a>
     </h1>
 </div>
 
@@ -197,14 +197,44 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="nodejs-&#x9879;&#x76EE;&#x7684;&#x7EBF;&#x4E0A;&#x670D;&#x52A1;&#x5668;&#x90E8;&#x7F72;&#x4E0E;&#x53D1;&#x5E03;">Node.js &#x9879;&#x76EE;&#x7684;&#x7EBF;&#x4E0A;&#x670D;&#x52A1;&#x5668;&#x90E8;&#x7F72;&#x4E0E;&#x53D1;&#x5E03;</h1>
-<p>&#x8FD9;&#x662F; <a href="http://coding.imooc.com/class/95.html" target="_blank">Node.js &#x9879;&#x76EE;&#x7684;&#x7EBF;&#x4E0A;&#x670D;&#x52A1;&#x5668;&#x6B65;&#x6570;&#x4E0E;&#x53D1;&#x5E03;</a> &#x8BFE;&#x7A0B;&#x7684;&#x5B66;&#x4E60;&#x7B14;&#x8BB0;&#xFF0C;&#x65B9;&#x4FBF;&#x770B;&#x5B8C;&#x89C6;&#x9891;&#x4E4B;&#x540E;&#x56DE;&#x987E;&#x3002;</p>
-<h2 id="&#x8BFE;&#x524D;&#x5FC5;&#x5B66;">&#x8BFE;&#x524D;&#x5FC5;&#x5B66;</h2>
+                                <h1 id="04-&#x8FDC;&#x7A0B;&#x767B;&#x5F55;&#x670D;&#x52A1;&#x5668;">04 &#x8FDC;&#x7A0B;&#x767B;&#x5F55;&#x670D;&#x52A1;&#x5668;</h1>
+<h2 id="41-&#x7B2C;&#x4E00;&#x6B21;-ssh-&#x8FDC;&#x7A0B;&#x767B;&#x9646;&#x670D;&#x52A1;&#x5668;">4.1 <a href="http://coding.imooc.com/lesson/95.html#mid=3111" target="_blank">&#x7B2C;&#x4E00;&#x6B21; ssh &#x8FDC;&#x7A0B;&#x767B;&#x9646;&#x670D;&#x52A1;&#x5668;</a></h2>
+<p><strong>&#x4F7F;&#x7528;&#x8D85;&#x7EA7;&#x7BA1;&#x7406;&#x5458; root &#x7528;&#x6237;&#x540D;&#x767B;&#x5F55;&#x963F;&#x91CC;&#x4E91;&#x670D;&#x52A1;&#x5668;</strong></p>
+<p>&#x5E38;&#x7528;&#x547D;&#x4EE4;&#xFF1A;</p>
 <ul>
-<li><a href="http://www.imooc.com/learn/348" target="_blank">&#x8FDB;&#x51FB; Node.js &#x57FA;&#x7840;&#xFF08;&#x4E00;&#xFF09;</a></li>
-<li><a href="http://www.imooc.com/learn/637" target="_blank">&#x8FDB;&#x51FB; Node.js &#x57FA;&#x7840;&#xFF08;&#x4E8C;&#xFF09;</a></li>
-<li><a href="http://www.imooc.com/learn/75" target="_blank">node + mongodb &#x5EFA;&#x7AD9;&#x653B;&#x7565;&#xFF08;&#x4E00;&#xFF09;</a></li>
-<li><a href="http://www.imooc.com/learn/197" target="_blank">node + mongodb &#x5EFA;&#x7AD9;&#x653B;&#x7565;&#xFF08;&#x4E8C;&#xFF09;</a></li>
+<li><code>fdisk -l</code> &#x5217;&#x51FA;&#x78C1;&#x76D8;</li>
+<li><code>df -h</code> &#x67E5;&#x770B;&#x786C;&#x76D8;&#x4F7F;&#x7528;&#x60C5;&#x51B5;</li>
+</ul>
+<p>.zshrc &#x914D;&#x7F6E;alias&#xFF08;&#x522B;&#x540D;&#xFF09;</p>
+<h2 id="42-&#x914D;&#x7F6E;-root-&#x53CA;&#x5E94;&#x7528;&#x8D26;&#x53F7;&#x6743;&#x9650;">4.2 <a href="http://coding.imooc.com/lesson/95.html#mid=3112" target="_blank">&#x914D;&#x7F6E; root &#x53CA;&#x5E94;&#x7528;&#x8D26;&#x53F7;&#x6743;&#x9650;</a></h2>
+<p><strong>&#x6DFB;&#x52A0;&#x666E;&#x901A;&#x7528;&#x6237;</strong></p>
+<ul>
+<li><code>adduser imooc_manager</code> &#x6DFB;&#x52A0;&#x65B0;&#x7528;&#x6237;</li>
+<li><code>gpassed -a imooc_manager sudo</code> &#x52A0;&#x5165; sudo group</li>
+<li><code>sudo visudo</code></li>
+<li><code>imooc_manager ALL=(ALL::ALL) ALL</code> &#x589E;&#x52A0;&#x4E00;&#x884C;</li>
+<li><code>service ssh restart</code> &#x91CD;&#x542F; ssh &#x670D;&#x52A1;</li>
+</ul>
+<p><strong>&#x53C2;&#x8003;&#x6559;&#x7A0B;&#xFF1A;</strong></p>
+<ul>
+<li><a href="https://www.digitalocean.com/community/tutorials/initial-server-setup-with-ubuntu-14-04" target="_blank">Initial Server Setup with Ubuntu 14.04</a></li>
+<li><a href="https://www.digitalocean.com/community/tutorials/initial-server-setup-with-ubuntu-16-04" target="_blank">Initial Server Setup with Ubuntu 16.04</a></li>
+</ul>
+<h2 id="43-&#x914D;&#x7F6E;&#x672C;&#x5730;&#x65E0;&#x5BC6;&#x7801;-ssh-&#x767B;&#x5F55;">4.3 <a href="http://coding.imooc.com/lesson/95.html#mid=3205" target="_blank">&#x914D;&#x7F6E;&#x672C;&#x5730;&#x65E0;&#x5BC6;&#x7801; SSH &#x767B;&#x5F55;</a></h2>
+<p><strong>&#x672C;&#x5730;&#x751F;&#x6210;&#x79C1;&#x94A5;&#x548C;&#x516C;&#x94A5; .ssh folder</strong></p>
+<ul>
+<li><code>cd .ssh</code></li>
+<li><code>id_rsa.pub</code></li>
+<li><code>id_rsa</code></li>
+<li><code>ssh-keygen -t rsa -b 4096 -C &quot;my@email.com&quot;</code></li>
+<li><code>eval &quot;$(ssh-agent -s)&quot;</code> &#x542F;&#x52A8;ssh&#x4EE3;&#x7406;</li>
+<li><code>ssh-add ~/.ssh/id_rsa</code></li>
+</ul>
+<p><strong>&#x670D;&#x52A1;&#x5668;&#x6388;&#x6743;&#x64CD;&#x4F5C;</strong></p>
+<ul>
+<li><code>vim .ssh/authorized_keys</code> &#x521B;&#x5EFA;&#x6388;&#x6743;&#x6587;&#x4EF6;</li>
+<li>past public key</li>
+<li>restart ssh service</li>
 </ul>
 
                                 
@@ -233,10 +263,10 @@
 
             
                 
-                
-                <a href="01.html" class="navigation navigation-next navigation-unique" aria-label="Next page: 01 课程预热">
-                    <i class="fa fa-angle-right"></i>
+                <a href="03.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: 03 选购域名服务器及备案">
+                    <i class="fa fa-angle-left"></i>
                 </a>
+                
                 
             
         
@@ -245,7 +275,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Introduction","level":"1.1","depth":1,"next":{"title":"01 课程预热","level":"1.2","depth":1,"path":"01.md","ref":"01.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"README.md","mtime":"2017-05-04T09:17:44.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-05-08T05:25:53.412Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"04 远程登录服务器","level":"1.5","depth":1,"previous":{"title":"03 选购域名服务器及备案","level":"1.4","depth":1,"path":"03.md","ref":"03.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"04.md","mtime":"2017-05-08T05:24:16.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-05-08T05:25:53.412Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
