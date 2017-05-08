@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>04 远程登录服务器 · GitBook</title>
+        <title>05 增强服务器安全等级 · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.2">
@@ -57,10 +57,8 @@
     <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="05.html" />
     
-    
-    <link rel="prev" href="03.html" />
+    <link rel="prev" href="04.html" />
     
 
     </head>
@@ -141,7 +139,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.5" data-path="04.html">
+        <li class="chapter " data-level="1.5" data-path="04.html">
             
                 <a href="04.html">
             
@@ -154,7 +152,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.6" data-path="05.html">
+        <li class="chapter active" data-level="1.6" data-path="05.html">
             
                 <a href="05.html">
             
@@ -197,7 +195,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="." >04 远程登录服务器</a>
+        <a href="." >05 增强服务器安全等级</a>
     </h1>
 </div>
 
@@ -212,44 +210,86 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="04-&#x8FDC;&#x7A0B;&#x767B;&#x5F55;&#x670D;&#x52A1;&#x5668;">04 &#x8FDC;&#x7A0B;&#x767B;&#x5F55;&#x670D;&#x52A1;&#x5668;</h1>
-<h2 id="41-&#x7B2C;&#x4E00;&#x6B21;-ssh-&#x8FDC;&#x7A0B;&#x767B;&#x9646;&#x670D;&#x52A1;&#x5668;">4.1 <a href="http://coding.imooc.com/lesson/95.html#mid=3111" target="_blank">&#x7B2C;&#x4E00;&#x6B21; ssh &#x8FDC;&#x7A0B;&#x767B;&#x9646;&#x670D;&#x52A1;&#x5668;</a></h2>
-<p><strong>&#x4F7F;&#x7528;&#x8D85;&#x7EA7;&#x7BA1;&#x7406;&#x5458; root &#x7528;&#x6237;&#x540D;&#x767B;&#x5F55;&#x963F;&#x91CC;&#x4E91;&#x670D;&#x52A1;&#x5668;</strong></p>
-<p>&#x5E38;&#x7528;&#x547D;&#x4EE4;&#xFF1A;</p>
+                                <h1 id="05-&#x589E;&#x5F3A;&#x670D;&#x52A1;&#x5668;&#x5B89;&#x5168;&#x7B49;&#x7EA7;">05 &#x589E;&#x5F3A;&#x670D;&#x52A1;&#x5668;&#x5B89;&#x5168;&#x7B49;&#x7EA7;</h1>
+<h2 id="51-&#x4FEE;&#x6539;&#x670D;&#x52A1;&#x5668;&#x9ED8;&#x8BA4;&#x767B;&#x5F55;&#x7AEF;&#x53E3;">5.1 <a href="http://coding.imooc.com/lesson/95.html#mid=3169" target="_blank">&#x4FEE;&#x6539;&#x670D;&#x52A1;&#x5668;&#x9ED8;&#x8BA4;&#x767B;&#x5F55;&#x7AEF;&#x53E3;</a></h2>
+<p><strong>&#x4FEE;&#x6539; ssh &#x9ED8;&#x8BA4;&#x7AEF;&#x53E3;</strong></p>
 <ul>
-<li><code>fdisk -l</code> &#x5217;&#x51FA;&#x78C1;&#x76D8;</li>
-<li><code>df -h</code> &#x67E5;&#x770B;&#x786C;&#x76D8;&#x4F7F;&#x7528;&#x60C5;&#x51B5;</li>
+<li><code>sudo vim /etc/ssh/sshd_config</code></li>
+<li>&#x4FEE;&#x6539; port &#x4ECE;22 &#x6539;&#x4E3A; 1025~65535 &#x5747;&#x53EF;</li>
+<li><code>UseDNS no</code></li>
+<li><code>AllowUsers yourUserName</code></li>
+<li>&#x91CD;&#x542F; ssh service</li>
+<li><code>ssh -p portNumber username@hostIp</code></li>
 </ul>
-<p>.zshrc &#x914D;&#x7F6E;alias&#xFF08;&#x522B;&#x540D;&#xFF09;</p>
-<h2 id="42-&#x914D;&#x7F6E;-root-&#x53CA;&#x5E94;&#x7528;&#x8D26;&#x53F7;&#x6743;&#x9650;">4.2 <a href="http://coding.imooc.com/lesson/95.html#mid=3112" target="_blank">&#x914D;&#x7F6E; root &#x53CA;&#x5E94;&#x7528;&#x8D26;&#x53F7;&#x6743;&#x9650;</a></h2>
-<p><strong>&#x6DFB;&#x52A0;&#x666E;&#x901A;&#x7528;&#x6237;</strong></p>
+<p><strong>&#x5173;&#x95ED;&#x670D;&#x52A1;&#x5668; root &#x5BC6;&#x7801;&#x767B;&#x5F55;</strong></p>
 <ul>
-<li><code>adduser imooc_manager</code> &#x6DFB;&#x52A0;&#x65B0;&#x7528;&#x6237;</li>
-<li><code>gpassed -a imooc_manager sudo</code> &#x52A0;&#x5165; sudo group</li>
-<li><code>sudo visudo</code></li>
-<li><code>imooc_manager ALL=(ALL::ALL) ALL</code> &#x589E;&#x52A0;&#x4E00;&#x884C;</li>
-<li><code>service ssh restart</code> &#x91CD;&#x542F; ssh &#x670D;&#x52A1;</li>
+<li><code>sudo vim /etc/ssh/sshd_config</code></li>
+<li><code>PermitRootLogin no</code></li>
+<li><code>PasswordAuthentication no</code></li>
+<li><code>PermitEmptyPasswords no</code></li>
+<li>&#x91CD;&#x542F; ssh service</li>
 </ul>
-<p><strong>&#x53C2;&#x8003;&#x6559;&#x7A0B;&#xFF1A;</strong></p>
+<h2 id="52-&#x914D;&#x7F6E;-iptables-&#x548C;-fail2ban-&#x589E;&#x5F3A;&#x5B89;&#x5168;&#x9632;&#x62A4;">5.2 <a href="http://coding.imooc.com/lesson/95.html#mid=3170" target="_blank">&#x914D;&#x7F6E; iptables &#x548C; Fail2Ban &#x589E;&#x5F3A;&#x5B89;&#x5168;&#x9632;&#x62A4;</a></h2>
 <ul>
-<li><a href="https://www.digitalocean.com/community/tutorials/initial-server-setup-with-ubuntu-14-04" target="_blank">Initial Server Setup with Ubuntu 14.04</a></li>
-<li><a href="https://www.digitalocean.com/community/tutorials/initial-server-setup-with-ubuntu-16-04" target="_blank">Initial Server Setup with Ubuntu 16.04</a></li>
+<li><code>sudo apt-get update &amp;&amp; sudo apt-get upgrade</code> &#x5347;&#x7EA7;&#x66F4;&#x65B0;&#x670D;&#x52A1;&#x5668;</li>
+<li><code>sudo iptables -F</code> &#x6E05;&#x7A7A;iptables&#x914D;&#x7F6E;</li>
+<li><code>sudo vim /etc/iptables.up.rules</code></li>
 </ul>
-<h2 id="43-&#x914D;&#x7F6E;&#x672C;&#x5730;&#x65E0;&#x5BC6;&#x7801;-ssh-&#x767B;&#x5F55;">4.3 <a href="http://coding.imooc.com/lesson/95.html#mid=3205" target="_blank">&#x914D;&#x7F6E;&#x672C;&#x5730;&#x65E0;&#x5BC6;&#x7801; SSH &#x767B;&#x5F55;</a></h2>
-<p><strong>&#x672C;&#x5730;&#x751F;&#x6210;&#x79C1;&#x94A5;&#x548C;&#x516C;&#x94A5; .ssh folder</strong></p>
-<ul>
-<li><code>cd .ssh</code></li>
-<li><code>id_rsa.pub</code></li>
-<li><code>id_rsa</code></li>
-<li><code>ssh-keygen -t rsa -b 4096 -C &quot;my@email.com&quot;</code></li>
-<li><code>eval &quot;$(ssh-agent -s)&quot;</code> &#x542F;&#x52A8;ssh&#x4EE3;&#x7406;</li>
-<li><code>ssh-add ~/.ssh/id_rsa</code></li>
+<pre><code>*filter
+
+# allow all connections
+-A INPUT -m state --state ESTABLISHED, RELATED -j ACCEPT
+
+# allow out traffic
+-A OUTPU -j ACCEPT
+
+# allow http https
+-A INPUT -p tcp --dport 443 -j ACCEPT
+-A INPUT -p tcp --dport 80 -j ACCEPT
+
+# allow ssh port login
+-A INPUT -p tcp -m state --state NEW --dport 39999 -j ACCEPT
+
+# allow ping
+-A INPUT -p icmp -m icmp --icmp-type 8 -j ACCEPT
+
+# log denied calss
+-A INPUT -m limit --limit 5/min -j LOG --log-prefix &quot;iptables denied: &quot; --log-level 7
+
+# drop incoming sensitive connections
+-A INPUT -p tcp --dport 80 -i eth0 -m state --state NEW -m recent --Setup
+-A INPUT -p tcp --dport 80 -i eth0 -m state --state NEW -m recent --update --seconds 60 --hitcount 150 -j DROP
+
+# reject all otherr inbound
+-A INPUT -j REJECT
+-A FORWARD -j REJECT
+
+COMMIT
+</code></pre><ul>
+<li><code>sudo iptables-retsore &lt; /etc/iptables.up.rules</code></li>
+<li><code>sudo ufw status</code></li>
+<li><code>sudo ufw enable</code></li>
 </ul>
-<p><strong>&#x670D;&#x52A1;&#x5668;&#x6388;&#x6743;&#x64CD;&#x4F5C;</strong></p>
+<p>&#x7CFB;&#x7EDF;&#x542F;&#x52A8;&#x65F6;&#x8F7D;&#x5165; iptables &#x914D;&#x7F6E;</p>
 <ul>
-<li><code>vim .ssh/authorized_keys</code> &#x521B;&#x5EFA;&#x6388;&#x6743;&#x6587;&#x4EF6;</li>
-<li>past public key</li>
-<li>restart ssh service</li>
+<li><code>sudo vim /etc/network/if-up.iptables</code></li>
+</ul>
+<pre><code>#!/bin/sh
+iptables-restore /etc/iptables.up.rules
+</code></pre><ul>
+<li><code>sudo chmod +x /etc/network/if-up.d/iptables</code></li>
+</ul>
+<p><strong>Fail2Ban</strong></p>
+<ul>
+<li><code>sudo apt-get install fail2ban</code></li>
+<li><code>sudo vim /etc/fail2ban/jail.confg</code></li>
+</ul>
+<pre><code>bantime = 3600
+destemail = &apos;your@email.com&apos;
+action = %(action_mw)s
+</code></pre><ul>
+<li><code>sudo service fail2ban status</code></li>
+<li><code>sudo service fail2ban start</code></li>
 </ul>
 
                                 
@@ -278,14 +318,10 @@
 
             
                 
-                <a href="03.html" class="navigation navigation-prev " aria-label="Previous page: 03 选购域名服务器及备案">
+                <a href="04.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: 04 远程登录服务器">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
-                
-                <a href="05.html" class="navigation navigation-next " aria-label="Next page: 05 增强服务器安全等级">
-                    <i class="fa fa-angle-right"></i>
-                </a>
                 
             
         
@@ -294,7 +330,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"04 远程登录服务器","level":"1.5","depth":1,"next":{"title":"05 增强服务器安全等级","level":"1.6","depth":1,"path":"05.md","ref":"05.md","articles":[]},"previous":{"title":"03 选购域名服务器及备案","level":"1.4","depth":1,"path":"03.md","ref":"03.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"04.md","mtime":"2017-05-08T05:24:16.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-05-08T06:15:55.773Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"05 增强服务器安全等级","level":"1.6","depth":1,"previous":{"title":"04 远程登录服务器","level":"1.5","depth":1,"path":"04.md","ref":"04.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"05.md","mtime":"2017-05-08T06:13:49.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-05-08T06:15:55.773Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
