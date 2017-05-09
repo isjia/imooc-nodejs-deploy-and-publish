@@ -35,7 +35,7 @@ gulp.task('serve', ['build'], function(){
       baseDir: './notes/_book'
     }
   });
-  gulp.watch(['./notes/**/*.md'], ['html-watch']);
+  gulp.watch(['notes/**/*.md'], ['html-watch']);
 });
 
 gulp.task('publish', ['build-gitbook', 'deploy-to-gh-pages']);
