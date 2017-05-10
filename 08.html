@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>06 搭建 Nodejs 生产环境 · GitBook</title>
+        <title>08 利用 DNSPod 管理域名解析 · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.2">
@@ -57,10 +57,10 @@
     <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="07.html" />
+    <link rel="next" href="09.html" />
     
     
-    <link rel="prev" href="05.html" />
+    <link rel="prev" href="07.html" />
     
 
     </head>
@@ -167,7 +167,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.7" data-path="06.html">
+        <li class="chapter " data-level="1.7" data-path="06.html">
             
                 <a href="06.html">
             
@@ -193,7 +193,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.9" data-path="08.html">
+        <li class="chapter active" data-level="1.9" data-path="08.html">
             
                 <a href="08.html">
             
@@ -249,7 +249,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="." >06 搭建 Nodejs 生产环境</a>
+        <a href="." >08 利用 DNSPod 管理域名解析</a>
     </h1>
 </div>
 
@@ -264,30 +264,12 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="06-&#x642D;&#x5EFA;-nodejs-&#x751F;&#x4EA7;&#x73AF;&#x5883;">06 &#x642D;&#x5EFA; Nodejs &#x751F;&#x4EA7;&#x73AF;&#x5883;</h1>
-<h2 id="61-&#x642D;&#x5EFA;&#x670D;&#x52A1;&#x5668;&#x7684;-nodejs-&#x73AF;&#x5883;">6.1 <a href="http://coding.imooc.com/lesson/95.html#mid=3204" target="_blank">&#x642D;&#x5EFA;&#x670D;&#x52A1;&#x5668;&#x7684; Nodejs &#x73AF;&#x5883;</a></h2>
+                                <h1 id="08-&#x5229;&#x7528;-dnspod-&#x7BA1;&#x7406;&#x57DF;&#x540D;&#x89E3;&#x6790;">08 &#x5229;&#x7528; DNSPod &#x7BA1;&#x7406;&#x57DF;&#x540D;&#x89E3;&#x6790;</h1>
+<h2 id="81-&#x66F4;&#x6539;&#x57DF;&#x540D;&#x7684;-dns-&#x6839;&#x670D;&#x52A1;&#x5668;">8.1 <a href="http://coding.imooc.com/lesson/95.html#mid=3154" target="_blank">&#x66F4;&#x6539;&#x57DF;&#x540D;&#x7684; DNS &#x6839;&#x670D;&#x52A1;&#x5668;</a></h2>
+<p><strong>&#x4F7F;&#x7528;<a href="http://dnspod.cn" target="_blank">DNSPod</a>&#x8FDB;&#x884C;&#x89E3;&#x6790;</strong></p>
+<h2 id="82-&#x914D;&#x7F6E;&#x89E3;&#x6790;&#x9879;&#x76EE;&#x7684;&#x57DF;&#x540D;-a-&#x8BB0;&#x5F55;&#x548C;-cname">8.2 <a href="http://coding.imooc.com/lesson/95.html#mid=3155" target="_blank">&#x914D;&#x7F6E;&#x89E3;&#x6790;&#x9879;&#x76EE;&#x7684;&#x57DF;&#x540D; A &#x8BB0;&#x5F55;&#x548C; CNAME</a></h2>
 <ul>
-<li><code>sudo apt-get install vim openssl build-essential libssl-dev wget curl git</code></li>
-<li>&#x5B89;&#x88C5; <a href="https://github.com/creationix/nvm" target="_blank">nvm</a>: <code>wget -qO- https://raw.githubusercontent.com/creationix/nvm/v0.33.2/install.sh | bash</code></li>
-<li><code>nvm install v6.9.5</code> &#x5B89;&#x88C5; node.js</li>
-<li><code>nvm use 6.9.5</code></li>
-<li><code>nvm alias default 6.9.5</code></li>
-<li><code>node -v</code></li>
-<li><code>npm --registry=https://registry.npm.taobao.org install -g npm</code></li>
-<li><code>npm -v</code></li>
-<li><code>echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf &amp;&amp; sudo sysctl -p</code></li>
-<li><code>npm install cnpm</code></li>
-<li><code>cnpm sync koa</code> &#x4F7F;&#x7528; cnpm &#x540C;&#x6B65;&#x5305;</li>
-<li><code>npm i pm2 webpack gulp grunt-cli -g</code></li>
-</ul>
-<p>&#x521B;&#x5EFA;&#x4E00;&#x4E2A; js &#x6587;&#x4EF6;&#x6D4B;&#x8BD5;&#x9A8C;&#x8BC1;&#x4E00;&#x4E0B; node.js &#x5B89;&#x88C5;&#x6210;&#x529F;</p>
-<h2 id="62-&#x501F;&#x52A9;-pm2-&#x8BA9;-nodejs-&#x670D;&#x52A1;&#x5E38;&#x9A7B;">6.2 <a href="http://coding.imooc.com/lesson/95.html#mid=3152" target="_blank">&#x501F;&#x52A9; pm2 &#x8BA9; Nodejs &#x670D;&#x52A1;&#x5E38;&#x9A7B;</a></h2>
-<p><strong>&#x501F;&#x52A9; pm2 &#x8BA9;&#x670D;&#x52A1;&#x6301;&#x7EED;&#x7A33;&#x5B9A;&#x8FD0;&#x884C;</strong></p>
-<ul>
-<li><code>npm install pm2 -g</code></li>
-<li><code>pm2 start app.js</code> &#x542F;&#x52A8;&#x670D;&#x52A1;</li>
-<li><code>pm2 list</code></li>
-<li><code>pm2 show app</code> app &#x7684;&#x8FD0;&#x884C;&#x72B6;&#x6001;&#x8BE6;&#x60C5;&#x67E5;&#x8BE2;</li>
+<li>&#x8BB0;&#x5F55;&#x7C7B;&#x578B;&#xFF1A;A, CNAME, MX, TXT ...</li>
 </ul>
 
                                 
@@ -316,12 +298,12 @@
 
             
                 
-                <a href="05.html" class="navigation navigation-prev " aria-label="Previous page: 05 增强服务器安全等级">
+                <a href="07.html" class="navigation navigation-prev " aria-label="Previous page: 07 配置 Nginx 实现反向代理">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="07.html" class="navigation navigation-next " aria-label="Next page: 07 配置 Nginx 实现反向代理">
+                <a href="09.html" class="navigation navigation-next " aria-label="Next page: 09 服务器配置安装 MongoDB">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -332,7 +314,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"06 搭建 Nodejs 生产环境","level":"1.7","depth":1,"next":{"title":"07 配置 Nginx 实现反向代理","level":"1.8","depth":1,"path":"07.md","ref":"07.md","articles":[]},"previous":{"title":"05 增强服务器安全等级","level":"1.6","depth":1,"path":"05.md","ref":"05.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"06.md","mtime":"2017-05-09T06:17:16.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-05-10T07:52:16.926Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"08 利用 DNSPod 管理域名解析","level":"1.9","depth":1,"next":{"title":"09 服务器配置安装 MongoDB","level":"1.10","depth":1,"path":"09.md","ref":"09.md","articles":[]},"previous":{"title":"07 配置 Nginx 实现反向代理","level":"1.8","depth":1,"path":"07.md","ref":"07.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"08.md","mtime":"2017-05-10T05:47:04.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-05-10T07:52:16.926Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
