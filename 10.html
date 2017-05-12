@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>07 配置 Nginx 实现反向代理 · GitBook</title>
+        <title>10 向服务器正式部署和发布上线 Nodejs 项目 · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.2">
@@ -57,10 +57,8 @@
     <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="08.html" />
     
-    
-    <link rel="prev" href="06.html" />
+    <link rel="prev" href="09.html" />
     
 
     </head>
@@ -180,7 +178,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.8" data-path="07.html">
+        <li class="chapter " data-level="1.8" data-path="07.html">
             
                 <a href="07.html">
             
@@ -219,7 +217,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.11" data-path="10.html">
+        <li class="chapter active" data-level="1.11" data-path="10.html">
             
                 <a href="10.html">
             
@@ -262,7 +260,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="." >07 配置 Nginx 实现反向代理</a>
+        <a href="." >10 向服务器正式部署和发布上线 Nodejs 项目</a>
     </h1>
 </div>
 
@@ -277,37 +275,21 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="07-&#x914D;&#x7F6E;-nginx-&#x5B9E;&#x73B0;&#x53CD;&#x5411;&#x4EE3;&#x7406;">07 &#x914D;&#x7F6E; Nginx &#x5B9E;&#x73B0;&#x53CD;&#x5411;&#x4EE3;&#x7406;</h1>
-<h2 id="71-&#x914D;&#x7F6E;-nginx-&#x53CD;&#x5411;&#x4EE3;&#x7406;-nodejs-&#x7AEF;&#x53E3;">7.1 <a href="http://coding.imooc.com/lesson/95.html#mid=3153" target="_blank">&#x914D;&#x7F6E; Nginx &#x53CD;&#x5411;&#x4EE3;&#x7406; Nodejs &#x7AEF;&#x53E3;</a></h2>
-<ul>
-<li><code>sudo apt-get nginx</code></li>
-<li><code>nginx -v</code></li>
-<li><code>cd /etc/nginx/conf.d</code></li>
-<li><code>sudo vim my-site-com-8081.conf</code> &#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x914D;&#x7F6E;&#x6587;&#x4EF6;</li>
-</ul>
-<pre><code>upstream imooc {
-  server 127.0.0.1:8081;
-}
-
-server {
-  listen 80;
-  server_name your.domain.com;
-
-  location / {
-    proxy_set_header X-Real-IP $remote_addr;
-    proxy_set_header X-Forward-For $proxy_add_x_forwarded_for;
-    proxy_set_header Host $http_host;
-    proxy_set_header X-Nginx-Proxy true;
-
-    proxy_pass http://imooc;
-    proxy_redirect off;
-  }
-}
-</code></pre><ul>
-<li><code>sudo nginx -t</code></li>
-<li><code>sudo nginx -s reload</code></li>
-<li>&#x4FEE;&#x6539; basic config&#xFF0C;&#x9690;&#x85CF;&#x7248;&#x672C;&#x4FE1;&#x606F;&#xFF1A;<code>/etc/nginx/ning.conf</code>&#xFF0C;&#x5728; Basic Setting &#x4E2D;&#x53D6;&#x6D88;<code>server_tokens off</code> &#x7684;&#x6CE8;&#x91CA;&#xFF0C;&#x91CD;&#x542F; nginx &#x670D;&#x52A1;&#x3002;</li>
-</ul>
+                                <h1 id="10-&#x5411;&#x670D;&#x52A1;&#x5668;&#x6B63;&#x5F0F;&#x90E8;&#x7F72;&#x548C;&#x53D1;&#x5E03;&#x4E0A;&#x7EBF;-nodejs-&#x9879;&#x76EE;">10 &#x5411;&#x670D;&#x52A1;&#x5668;&#x6B63;&#x5F0F;&#x90E8;&#x7F72;&#x548C;&#x53D1;&#x5E03;&#x4E0A;&#x7EBF; Nodejs &#x9879;&#x76EE;</h1>
+<h2 id="101-&#x4E0A;&#x4F20;&#x9879;&#x76EE;&#x4EE3;&#x7801;&#x5230;&#x7EBF;&#x4E0A;&#x79C1;&#x6709;-git-&#x4ED3;&#x5E93;">10.1 <a href="http://coding.imooc.com/lesson/95.html#mid=3160" target="_blank">&#x4E0A;&#x4F20;&#x9879;&#x76EE;&#x4EE3;&#x7801;&#x5230;&#x7EBF;&#x4E0A;&#x79C1;&#x6709; Git &#x4ED3;&#x5E93;</a></h2>
+<p>&#x4F7F;&#x7528; Git &#x7BA1;&#x7406;&#x9879;&#x76EE;&#x4EE3;&#x7801;&#xFF0C;&#x628A;&#x672C;&#x5730;&#x4EE3;&#x7801;&#x4E0A;&#x4F20;&#x5230; Github &#x4ED3;&#x5E93;&#x4E2D;&#x3002;</p>
+<p>&#x8FD9;&#x90E8;&#x5206;&#x6BD4;&#x8F83;&#x719F;&#x6089;&#xFF0C;&#x5177;&#x4F53;&#x8FC7;&#x7A0B;&#x7565;</p>
+<h2 id="102-&#x914D;&#x7F6E;-pm2-&#x4E00;&#x952E;&#x90E8;&#x7F72;&#x7EBF;&#x4E0A;&#x9879;&#x76EE;&#x7ED3;&#x6784;">10.2 <a href="http://coding.imooc.com/lesson/95.html#mid=3161" target="_blank">&#x914D;&#x7F6E; PM2 &#x4E00;&#x952E;&#x90E8;&#x7F72;&#x7EBF;&#x4E0A;&#x9879;&#x76EE;&#x7ED3;&#x6784;</a></h2>
+<p><strong>&#x7528; pm2 &#x540C;&#x6B65;&#x4EE3;&#x7801;&#xFF0C;&#x5E76;&#x91CD;&#x542F;&#x670D;&#x52A1;</strong></p>
+<p>&#x53C2;&#x8003;&#x5B98;&#x65B9;&#x7684; <a href="http://pm2.keymetrics.io/docs/usage/deployment/" target="_blank">pm2 deployment &#x6587;&#x6863;</a></p>
+<h2 id="103-&#x4ECE;&#x672C;&#x5730;&#x53D1;&#x5E03;&#x4E0A;&#x7EBF;&#x548C;&#x66F4;&#x65B0;&#x670D;&#x52A1;&#x5668;&#x7684;-nodejs-&#x9879;&#x76EE;">10.3 <a href="http://coding.imooc.com/lesson/95.html#mid=3162" target="_blank">&#x4ECE;&#x672C;&#x5730;&#x53D1;&#x5E03;&#x4E0A;&#x7EBF;&#x548C;&#x66F4;&#x65B0;&#x670D;&#x52A1;&#x5668;&#x7684; Nodejs &#x9879;&#x76EE;</a></h2>
+<p><strong>&#x90E8;&#x7F72;&#x9759;&#x6001;&#x7F51;&#x7AD9;&#x7684;&#x6D41;&#x7A0B;</strong></p>
+<h2 id="104-&#x90E8;&#x7F72;&#x53D1;&#x5E03;&#x7535;&#x5F71;&#x7F51;&#x7AD9;&#x5E76;&#x8FDE;&#x63A5;&#x7EBF;&#x4E0A;-mongodb">10.4 <a href="http://coding.imooc.com/lesson/95.html#mid=3163" target="_blank">&#x90E8;&#x7F72;&#x53D1;&#x5E03;&#x7535;&#x5F71;&#x7F51;&#x7AD9;&#x5E76;&#x8FDE;&#x63A5;&#x7EBF;&#x4E0A; MongoDB</a></h2>
+<p><strong>&#x90E8;&#x7F72;&#x52A8;&#x6001;&#x7F51;&#x7AD9;</strong></p>
+<h2 id="105-&#x90E8;&#x7F72;-reactnative-app-&#x7EBF;&#x4E0A;-api-&#x670D;&#x52A1;">10.5 <a href="http://coding.imooc.com/lesson/95.html#mid=3164" target="_blank">&#x90E8;&#x7F72; ReactNative App &#x7EBF;&#x4E0A; API &#x670D;&#x52A1;</a></h2>
+<p><strong>&#x90E8;&#x7F72; ReactNative App</strong></p>
+<h2 id="106-&#x90E8;&#x7F72;&#x5FAE;&#x4FE1;&#x5C0F;&#x7A0B;&#x5E8F;&#x7EBF;&#x4E0A;-api-&#x670D;&#x52A1;">10.6 <a href="http://coding.imooc.com/lesson/95.html#mid=3165" target="_blank">&#x90E8;&#x7F72;&#x5FAE;&#x4FE1;&#x5C0F;&#x7A0B;&#x5E8F;&#x7EBF;&#x4E0A; API &#x670D;&#x52A1;</a></h2>
+<p><strong>&#x90E8;&#x7F72;&#x5FAE;&#x4FE1;&#x5C0F;&#x7A0B;&#x5E8F;&#x540E;&#x53F0;</strong></p>
 
                                 
                                 </section>
@@ -335,14 +317,10 @@ server {
 
             
                 
-                <a href="06.html" class="navigation navigation-prev " aria-label="Previous page: 06 搭建 Nodejs 生产环境">
+                <a href="09.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: 09 服务器配置安装 MongoDB">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
-                
-                <a href="08.html" class="navigation navigation-next " aria-label="Next page: 08 利用 DNSPod 管理域名解析">
-                    <i class="fa fa-angle-right"></i>
-                </a>
                 
             
         
@@ -351,7 +329,7 @@ server {
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"07 配置 Nginx 实现反向代理","level":"1.8","depth":1,"next":{"title":"08 利用 DNSPod 管理域名解析","level":"1.9","depth":1,"path":"08.md","ref":"08.md","articles":[]},"previous":{"title":"06 搭建 Nodejs 生产环境","level":"1.7","depth":1,"path":"06.md","ref":"06.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"07.md","mtime":"2017-05-10T05:29:08.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-05-12T10:56:57.847Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"10 向服务器正式部署和发布上线 Nodejs 项目","level":"1.11","depth":1,"previous":{"title":"09 服务器配置安装 MongoDB","level":"1.10","depth":1,"path":"09.md","ref":"09.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"10.md","mtime":"2017-05-12T10:56:07.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-05-12T10:56:57.847Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
