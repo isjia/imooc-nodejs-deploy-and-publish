@@ -416,6 +416,16 @@ sudo apt-get install vim openssl build-essential libssl-dev wget curl git
 <p>&#x5B89;&#x88C5;node.js: <code>nvm install v6.10.3</code></p>
 <p>&#x5B89;&#x88C5; nrm &#x5305;&#xFF0C;&#x65B9;&#x4FBF;&#x5207;&#x6362; registry&#xFF1A;<code>npm install -g nrm</code></p>
 <p>&#x5B89;&#x88C5; pm2&#xFF1A;<code>npm install -g pm2</code></p>
+<p>&#x5199;&#x4E2A;&#x6587;&#x4EF6;&#x6D4B;&#x8BD5;&#x4E00;&#x4E0B;&#xFF1A;<code>pm2 start hello.js</code></p>
+<pre><code class="lang-js"><span class="hljs-keyword">const</span> http = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;http&apos;</span>)
+http.createServer(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">req, res</span>)</span>{
+  res.writeHead(<span class="hljs-number">200</span>, {<span class="hljs-string">&apos;Content-Type&apos;</span>: <span class="hljs-string">&apos;text/plain&apos;</span>})
+  res.end(<span class="hljs-string">&apos;Hello from weCatch&apos;</span>)
+}).listen(<span class="hljs-number">8080</span>)
+
+<span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;server running on http://106.14.142.58:8080&apos;</span>)
+</code></pre>
+<p>&#x8FD9;&#x91CC;&#x963F;&#x91CC;&#x4E91;&#x670D;&#x52A1;&#x5668;&#x6709;&#x4E2A;&#x5751;&#xFF0C;&#x5728;<strong>&#x5B89;&#x5168;&#x7EC4;</strong>&#x4E2D;&#x4E00;&#x5B9A;&#x8981;&#x6CE8;&#x610F;&#x914D;&#x7F6E;&#x5F00;&#x653E;80&#xFF0C;443&#xFF0C;22&#xFF0C;&#x4EE5;&#x53CA;&#x5176;&#x4ED6;&#x9700;&#x8981;&#x7528;&#x5230;&#x7684;&#x7AEF;&#x53E3;&#x3002;</p>
 
                                 
                                 </section>
@@ -455,7 +465,7 @@ sudo apt-get install vim openssl build-essential libssl-dev wget curl git
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"我的实战过程纪录","level":"1.13","depth":1,"previous":{"title":"11 使用和配置更安全的 HTTPS 协议","level":"1.12","depth":1,"path":"11.md","ref":"11.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"00.md","mtime":"2017-05-18T06:33:44.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-05-18T07:09:17.901Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"我的实战过程纪录","level":"1.13","depth":1,"previous":{"title":"11 使用和配置更安全的 HTTPS 协议","level":"1.12","depth":1,"path":"11.md","ref":"11.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"00.md","mtime":"2017-05-18T08:29:46.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-05-18T08:34:05.091Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
